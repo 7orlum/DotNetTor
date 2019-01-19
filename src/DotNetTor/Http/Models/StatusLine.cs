@@ -24,7 +24,7 @@ namespace DotNetTor.Http.Models
 				var parts = GetParts(statusLineString);
 				var protocolString = parts[0];
 				var codeString = parts[1];
-				var reason = parts[2];
+				var reason = parts.Count > 2 ? parts[2] : string.Empty;
 				var protocol = new HttpProtocol(protocolString);
 				var code = int.Parse(codeString);
 				if (!HttpStatusCodeHelper.IsValidCode(code))
